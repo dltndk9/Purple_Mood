@@ -166,7 +166,7 @@ font-family: 'DungGeunMo';
 					<span class="dongfont">닉네임<span class="requiredField">*<span></span>
 							<div class="margin_top col-12">
 								<input type="text" name="nickname" id="nickname"
-									placeholder="2~8자 영문 대 소문자,한글" readonly value="${dto.nickname}">
+									placeholder="2~8자 영문 대 소문자,한글" maxlength="10" readonly value="${dto.nickname}">
 								<div id="duplResultNickname"></div>
 							</div>
 				</div>
