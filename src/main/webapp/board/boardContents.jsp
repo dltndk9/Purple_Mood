@@ -174,7 +174,7 @@
                             <div class="col-12">${dto.b_category}</div>
                         </div>
                         <div class="row b_contents_header2">
-                            <div class="col-12" id="b_title" name="b_title" contenteditable="false">${dto.b_title }
+                            <div class="col-12 fs-4" id="b_title" name="b_title" contenteditable="false">${dto.b_title }
                             </div>
                             <script>
                                 $("#b_title").text($("#b_title").html());
@@ -186,10 +186,10 @@
                             <div class="col-lg-2 col-md-2 col-sm-2 col-">조회수 &nbsp ${dto.b_view_count }</div>
                         </div>
                     </div>
-                    <hr style="height: 1px; border: 0 none; color: #7303c0; background-color: #7303c0;">
+                    <hr style="border: 10px solid #25003d">
                     <div class="row b_contents_body">
-                        <div class="col-lg-12 col-md-12 col-sm-12" id="summernote" name="b_content" cols="131" rows="15"
-                            contenteditable="false">${dto.b_content }</div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 " id="summernote" name="b_content" cols="131"
+                            rows="15" contenteditable="false">${dto.b_content }</div>
                     </div>
                     <div class="row b_contents_footer">
                         <c:choose>
@@ -245,18 +245,18 @@
                         <c:otherwise>
                             <c:forEach var="comment" items="${list}">
                                 <div class="row boardCommentHeader">
-                                    <div class="bcm_writer_nn col-lg-3 col-md-4 col-sm-5 col-6">${comment.bcm_writer_nn}</div>
-                                    <div class="bcm_write_date col-lg-9 col-md-8 col-sm-7 col-6" name="bcm_write_date">${comment.bcm_write_date }</div>
+                                    <div class="bcm_writer_nn col-lg-3 col-md-4 col-sm-5 col-6">${comment.bcm_writer_nn}
+                                    </div>
+                                    <div class="bcm_write_date col-lg-9 col-md-8 col-sm-7 col-6" name="bcm_write_date">
+                                        ${comment.bcm_write_date }</div>
                                 </div>
                                 <div class="row boardComment">
                                     <input type="hidden" class="bcm_seq" name="bcm_seq" value="${comment.bcm_seq }">
                                     <input type="hidden" class="bcm_writer_id" name="bcm_writer_id"
                                         value="${comment.bcm_writer_id }">
-                                    <div class="bcm_content col-12" name="bcm_content" size="105"
+                                        <div class="bcm_content col-12" name="bcm_content" size="105"
                                         contenteditable="false">${comment.bcm_content }</div>
-                                    <script>
-                                        $(".bcm_content").text($(".bcm_content").html());
-                                    </script>
+
                                     <c:choose>
                                         <c:when test="${loginID == comment.bcm_writer_id}">
                                             <div class="cbtns col-12 text-end">
@@ -307,7 +307,7 @@
                             <input type="text" id="insertBcm_content" name="insertBcm_content" placeholder="내용을 입력하세요."
                                 maxlength="300" style="border:none; width:100%;">
                             <script>
-                                    $('#insertBcm_content').keyup(function () {
+                                $('#insertBcm_content').keyup(function () {
                                     let content = $(this).val();
 
                                     // 글자수 세기
@@ -323,7 +323,7 @@
                                         $(this).val($(this).val().substring(0, 200));
                                         // 99자 넘으면 알림창 뜨도록
                                         alert('글자수는 199자까지 입력 가능합니다.');
-                                    };
+                                    }
                                 });
                             </script>
                         </div>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%String keyword = request.getParameter("keyword"); %>
 keyword = keyword.replaceAll("&","&amp;");
 keyword = keyword.replaceAll("<","&lt;");
@@ -79,25 +79,53 @@ keyword = keyword.replaceAll(">","&gt;");
         }
 
         * {
-            box-sizing: border-box;
-        }
+                box-sizing: border-box;
+            }
 
-        body {
-            background-color: #03001e;
-        }
+            body {
+                background-color: #03001e;
+            }
 
-        .container {
-            margin: auto;
-        }
+            .container {
+                margin: auto;
+                width: 70vw;
+            }
 
-        .header {
-            font-family: '둥근모꼴체';
-            color: #03001e;
-        }
+            .header {
+                margin-bottom: 2%;
+                font-family: '둥근모꼴체';
+                color: #03001e;
+                overflow: hidden;
+            }
 
-        .headerTitle{
-            color: #fdeff9;
-        }
+            .headerTitle {
+                margin-right: 1%;
+                color: white;
+                font-size: large;
+            }
+
+            .category{
+                margin-bottom: 1%;
+                overflow: hidden;
+            }
+
+            .category>div{
+                float: left;
+            }
+
+            .b_category{
+                margin-top:4px;
+            }
+
+            .btns{
+                text-align: right;
+            }
+
+            button{
+                color: #03001e;
+            }
+
+
     </style>
 
     <script>
@@ -155,14 +183,14 @@ keyword = keyword.replaceAll(">","&gt;");
             var b_title = $("#b_title").val();
             
             
-        	if(b_title==""){
-    			alert('제목을 입력해주세요.');
+           if(b_title==""){
+             alert('제목을 입력해주세요.');
                 return false;
-        	}
-        	if ($('#summernote').summernote('isEmpty')) {
-        		  alert("내용을 입력해주세요.");
-        		  return false;
-        		}
+           }
+           if ($('#summernote').summernote('isEmpty')) {
+                alert("내용을 입력해주세요.");
+                return false;
+              }
 
             $.ajax({
                 url: "/insertBoardContents.board",
@@ -187,7 +215,7 @@ keyword = keyword.replaceAll(">","&gt;");
             <div class="row header">
                 <div class="category">
                     <div class="headerTitle">카테고리</div>
-                    <div>
+                    <div class="b_category">
                         <select id="b_category" name="b_category">
                             <option value="영화">영화</option>
                             <option value="드라마">드라마</option>
@@ -211,11 +239,11 @@ keyword = keyword.replaceAll(">","&gt;");
                         }
 
                         // 글자수 제한
-                        if (content.length > 99) {
-                            // 99자 부터는 타이핑 되지 않도록
-                            $(this).val($(this).val().substring(0, 200));
-                            // 99자 넘으면 알림창 뜨도록
-                            alert('글자수는 99자까지 입력 가능합니다.');
+                        if (content.length > 80) {
+                            // 80자 부터는 타이핑 되지 않도록
+                            $(this).val($(this).val().substring(0, 80));
+                            // 80자 넘으면 알림창 뜨도록
+                            alert('글자수는 80자까지 입력 가능합니다.');
                         };
                     });
                     </script>
@@ -223,13 +251,13 @@ keyword = keyword.replaceAll(">","&gt;");
                 </div>
             </div>
             <div class="row body">
-                <div class="col-lg-12 col-md-12 col-sm-12" id="summernote" name="b_content"></div>
-                </div>
+                <div id="summernote" name="b_content"></div>
+            </div>
             <div class="row footer">
-                <div class="btns col-lg-12 col-md-12 col-sm-12">
+                <div class="btns">
                     <button type="button" id="insertBoardContents"
                         name="insertBoardContents">작성하기</button>&nbsp
-                    <a href="/boardList.board?cpage=${boardPage }"><button type="button" id="toList" name="toList">목록으로</button></a>
+                    <button type="button" id="toList" name="toList"  onclick="location.href='/boardList.board?cpage=${boardPage}'">목록으로</button>
                 </div>
             </div>
         </div>
