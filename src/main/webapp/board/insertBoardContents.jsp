@@ -239,11 +239,11 @@ keyword = keyword.replaceAll(">","&gt;");
                         }
 
                         // 글자수 제한
-                        if (content.length > 80) {
-                            // 80자 부터는 타이핑 되지 않도록
-                            $(this).val($(this).val().substring(0, 80));
-                            // 80자 넘으면 알림창 뜨도록
-                            alert('글자수는 80자까지 입력 가능합니다.');
+                        if (content.length > 99) {
+                            // 99자 부터는 타이핑 되지 않도록
+                            $(this).val($(this).val().substring(0, 200));
+                            // 99자 넘으면 알림창 뜨도록
+                            alert('글자수는 99자까지 입력 가능합니다.');
                         };
                     });
                     </script>
@@ -252,13 +252,13 @@ keyword = keyword.replaceAll(">","&gt;");
             </div>
             <div class="row body">
                 <div id="summernote" name="b_content"></div>
-            </div>
+                </div>
             <div class="row footer">
                 <div class="btns">
                     <button type="button" id="insertBoardContents"
                         name="insertBoardContents">작성하기</button>&nbsp
-                    <button type="button" id="toList" name="toList"  onclick="location.href='/boardList.board?cpage=${boardPage}'">목록으로</button>
-                </div>
+                        <button type="button" id="toList" name="toList"
+                        onclick="location.href='/boardList.board?cpage=${boardPage}'">목록으로</button>                </div>
             </div>
         </div>
     </div>

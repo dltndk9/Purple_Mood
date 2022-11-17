@@ -295,12 +295,12 @@ input {
 
       $("#postcode").on("input", function() {
          alert("우편번호 찾기 버튼을 클릭해주세요.");
-         $(this).val("");
+          $(this).val("");
 
       })
       $("#address1").on("input", function() {
          alert("우편번호 찾기 버튼을 클릭해주세요.");
-         $(this).val("");
+          $(this).val("");
 
       })
       
